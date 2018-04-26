@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
@@ -13,7 +14,9 @@
         http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring
         http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring-1.1.xsd
         http://www.springframework.org/schema/task
-        http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+        http://www.springframework.org/schema/task/spring-task-3.0.xsd
+        http://www.springframework.org/schema/data/jpa
+		http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 	<!-- 트랜잭션 관리자 활성화 -->
 	<tx:annotation-driven />
@@ -71,6 +74,9 @@
 				<prop key="hibernate.hbm2ddl.auto">update</prop>                                           <!-- DDL 자동 생성 -->
 			</props>
 		</property>
-		
 	</bean>
+	
+	<!--  -->
+	<jpa:repositories base-package="com.estsoft.guestbook.repository2" />
+	
 </beans> 
